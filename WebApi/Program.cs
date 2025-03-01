@@ -11,9 +11,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApiDocument(settings =>
     {
         settings.Version = "v1.0";
-        settings.DocumentProcessors.Add(new UserTokenDocumentProcessor());
-        settings.DocumentProcessors.Add(new AccountTokenDocumentProcessor());
-        settings.DocumentProcessors.Add(new ProcessingTokenDocumentProcessor());
+        settings.DocumentProcessors.Add(new EmailDocumentProcessor());
+        settings.DocumentProcessors.Add(new UserAddressDocumentProcessor());
+        settings.DocumentProcessors.Add(new PhoneNumberDocumentProcessor());
+        settings.DocumentProcessors.Add(new MyGuidDocumentProcessor());
     }
 );
 DiConfig.ConfigureServices(builder.Services, builder.Configuration);

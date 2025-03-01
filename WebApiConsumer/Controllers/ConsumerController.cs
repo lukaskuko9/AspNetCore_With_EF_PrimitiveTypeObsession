@@ -10,16 +10,13 @@ public class ConsumerController(MyGeneratedClient client) : ControllerBase
     [HttpPost("userToken")]
     public async Task<IActionResult> PostUserTokenToWebApi()
     {
-        var accountToken = Guid.NewGuid();
         var guid = Guid.NewGuid();
-        var processingToken = Guid.NewGuid();
-        var userToken = Guid.NewGuid();
         
         var response = await client.PostTokensAsync(new PostUserTokenRequest
         {
-            UserToken = userToken,
-            AccountToken = accountToken,
-            ProcessingToken = processingToken,
+            UserAddress = "Prague 1 Made Up Address 37",
+            Email = "madeUp@email.com",
+            PhoneNumber = null,
             Guid = guid
         });
 

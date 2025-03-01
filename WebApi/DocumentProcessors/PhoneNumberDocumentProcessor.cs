@@ -1,18 +1,18 @@
 ﻿using NJsonSchema;
 using NSwag.Generation.Processors;
 using NSwag.Generation.Processors.Contexts;
-using PrimitiveTypeObsession.Core.Abstractions.GuidWrappers.AccountToken;
+using PrimitiveTypeObsession.Core.Abstractions.StringWrappers.PhoneNumber;
 
 namespace PrimitiveTypeObsession.WebApi.DocumentProcessors;
 
-internal class AccountTokenDocumentProcessor : IDocumentProcessor
+internal class PhoneNumberDocumentProcessor : IDocumentProcessor
 {
     public void Process(DocumentProcessorContext context)
     {
-        var co= context.Document.Definitions[nameof(AccountToken)];
-        co.Description = "My custom description for AccountToken";
+        var co= context.Document.Definitions[nameof(PhoneNumber)];
+        co.Description = "My custom description for PhoneNumber";
         co.Example = "string";
-        co.Format = "guid";
+        co.Format = "string";
         co.Type = JsonObjectType.String;
     }
 }

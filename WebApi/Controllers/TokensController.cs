@@ -14,9 +14,9 @@ public class TokensController : ControllerBase
     {
         return Ok(new PostUserTokenResponse
         {
-            UserToken = request.UserToken,
-            ProcessingToken = request.ProcessingToken,
-            AccountToken = request.AccountToken,
+            Email = request.Email,
+            PhoneNumber = request.PhoneNumber,
+            UserAddress = request.UserAddress,
             Guid = request.Guid,
         });
     }
