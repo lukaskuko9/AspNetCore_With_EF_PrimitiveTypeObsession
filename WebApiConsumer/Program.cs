@@ -1,4 +1,4 @@
-using Infrastructure.MyGeneratedClient;
+using WebApiConsumer.GeneratedClient;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
 using NSwag.AspNetCore;
 using PrimitiveTypeObsession.WebApi;
-using PrimitiveTypeObsession.WebApi.SchemaFilters;
+using PrimitiveTypeObsession.WebApi.DocumentProcessors;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +12,8 @@ builder.Services.AddOpenApiDocument(settings =>
     {
         settings.Version = "v1.0";
         settings.DocumentProcessors.Add(new UserTokenDocumentProcessor());
+        settings.DocumentProcessors.Add(new AccountTokenDocumentProcessor());
+        settings.DocumentProcessors.Add(new ProcessingTokenDocumentProcessor());
     }
 );
 DiConfig.ConfigureServices(builder.Services, builder.Configuration);

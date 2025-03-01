@@ -1,7 +1,7 @@
-﻿namespace PrimitiveTypeObsession.Core.UserToken;
+﻿namespace PrimitiveTypeObsession.Core.Abstractions.GuidWrappers.UserToken;
 
 [System.Text.Json.Serialization.JsonConverter(typeof(UserTokenSystemJsonConverter))]
-public readonly record struct UserToken(Guid Value) : IIdWrapper<UserToken>
+public readonly record struct UserToken(Guid Value) : IGuidWrapper<UserToken>
 {
     #region IComparable implementation
 

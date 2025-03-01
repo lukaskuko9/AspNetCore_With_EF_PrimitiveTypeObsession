@@ -18,7 +18,7 @@
 #pragma warning disable 8625 // Disable "CS8625 Cannot convert null literal to non-nullable reference type"
 #pragma warning disable 8765 // Disable "CS8765 Nullability of type of parameter doesn't match overridden member (possibly because of nullability attributes)."
 
-namespace Infrastructure.MyGeneratedClient
+namespace WebApiConsumer.GeneratedClient
 {
     using System = global::System;
 
@@ -98,8 +98,8 @@ namespace Infrastructure.MyGeneratedClient
 
                     var urlBuilder_ = new System.Text.StringBuilder();
                     if (!string.IsNullOrEmpty(_baseUrl)) urlBuilder_.Append(_baseUrl);
-                    // Operation Path: "api/UserToken"
-                    urlBuilder_.Append("api/UserToken");
+                    // Operation Path: "api/Tokens"
+                    urlBuilder_.Append("api/Tokens");
 
                     PrepareRequest(client_, request_, urlBuilder_);
 
@@ -271,6 +271,12 @@ namespace Infrastructure.MyGeneratedClient
         [Newtonsoft.Json.JsonProperty("userToken", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid UserToken { get; set; }
 
+        [Newtonsoft.Json.JsonProperty("processingToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid? ProcessingToken { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("accountToken", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid AccountToken { get; set; }
+
         [Newtonsoft.Json.JsonProperty("guid", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid Guid { get; set; }
 
@@ -281,6 +287,12 @@ namespace Infrastructure.MyGeneratedClient
     {
         [Newtonsoft.Json.JsonProperty("userToken", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid UserToken { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("processingToken", Required = Newtonsoft.Json.Required.Default, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid? ProcessingToken { get; set; }
+
+        [Newtonsoft.Json.JsonProperty("accountToken", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
+        public System.Guid AccountToken { get; set; }
 
         [Newtonsoft.Json.JsonProperty("guid", Required = Newtonsoft.Json.Required.DisallowNull, NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore)]
         public System.Guid Guid { get; set; }

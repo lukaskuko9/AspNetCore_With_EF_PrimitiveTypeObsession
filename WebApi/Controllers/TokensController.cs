@@ -6,7 +6,7 @@ namespace PrimitiveTypeObsession.WebApi.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class UserTokenController : ControllerBase
+public class TokensController : ControllerBase
 {
     [HttpPost]
     [ProducesResponseType(typeof(PostUserTokenResponse), StatusCodes.Status200OK)]
@@ -15,7 +15,9 @@ public class UserTokenController : ControllerBase
         return Ok(new PostUserTokenResponse
         {
             UserToken = request.UserToken,
-            Guid = request.Guid
+            ProcessingToken = request.ProcessingToken,
+            AccountToken = request.AccountToken,
+            Guid = request.Guid,
         });
     }
 }

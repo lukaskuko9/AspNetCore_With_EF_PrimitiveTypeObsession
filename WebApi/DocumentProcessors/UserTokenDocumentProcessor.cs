@@ -1,11 +1,11 @@
 ﻿using NJsonSchema;
 using NSwag.Generation.Processors;
 using NSwag.Generation.Processors.Contexts;
-using PrimitiveTypeObsession.Core.UserToken;
+using PrimitiveTypeObsession.Core.Abstractions.GuidWrappers.UserToken;
 
-namespace PrimitiveTypeObsession.WebApi.SchemaFilters;
+namespace PrimitiveTypeObsession.WebApi.DocumentProcessors;
 
-public class UserTokenDocumentProcessor : IDocumentProcessor
+internal class UserTokenDocumentProcessor : IDocumentProcessor
 {
     public void Process(DocumentProcessorContext context)
     {
