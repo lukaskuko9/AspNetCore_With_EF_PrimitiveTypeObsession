@@ -1,4 +1,4 @@
-namespace PrimitiveTypeObsession;
+namespace WebApiConsumer;
 
 public class WeatherForecast
 {
