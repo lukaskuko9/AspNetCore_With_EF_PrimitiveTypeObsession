@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using PrimitiveTypeObsession.Core.Abstractions.StringWrappers.Email;
 using PrimitiveTypeObsession.WebApi.Requests;
 using PrimitiveTypeObsession.WebApi.Responses;
 

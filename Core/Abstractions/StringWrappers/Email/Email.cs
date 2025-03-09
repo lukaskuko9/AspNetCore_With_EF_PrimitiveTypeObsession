@@ -1,8 +1,18 @@
-﻿namespace PrimitiveTypeObsession.Core.Abstractions.StringWrappers.Email;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace PrimitiveTypeObsession.Core.Abstractions.StringWrappers.Email;
 
 [System.Text.Json.Serialization.JsonConverter(typeof(EmailSystemJsonConverter))]
-public readonly record struct Email(string Value) : IStringWrapper<Email>
+public readonly record struct Email : IStringWrapper<Email>
 {
+    public Email(string Value)
+    {
+        if(Value.Contains('@') == false)
+            throw new EmailInvalidException(Value);
+        
+        this.Value = Value;
+    }
+
     #region IComparable implementation
 
     public int CompareTo(Email other)
@@ -34,4 +44,13 @@ public readonly record struct Email(string Value) : IStringWrapper<Email>
     }
     
     #endregion
+
+    public string Value { get; init; }
+
+    public void Deconstruct(out string value)
+    {
+        value = Value;
+    }
 }
+
+public class EmailInvalidException(string value) : ArgumentException($"Invalid email format. Value: {value}");

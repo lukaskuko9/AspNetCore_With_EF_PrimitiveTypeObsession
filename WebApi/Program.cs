@@ -1,22 +1,33 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using NSwag.AspNetCore;
 using PrimitiveTypeObsession.WebApi;
-using PrimitiveTypeObsession.WebApi.DocumentProcessors;
+using PrimitiveTypeObsession.WebApi.ExceptionHandlers;
+using PrimitiveTypeObsession.WebApi.ModelBinderProvider;
+using PrimitiveTypeObsession.WebApi.SchemaTypeMappers;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+{
+    options.ValueProviderFactories.Add(new QueryStringValueProviderFactory());
+  //  options.ValueProviderFactories.Add(new RouteValueProviderFactory());
+    options.ModelBinderProviders.Insert(0, new ModelBinderProvider());
+});
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddOpenApiDocument(settings =>
     {
         settings.Version = "v1.0";
-        settings.DocumentProcessors.Add(new EmailDocumentProcessor());
-        settings.DocumentProcessors.Add(new UserAddressDocumentProcessor());
-        settings.DocumentProcessors.Add(new PhoneNumberDocumentProcessor());
-        settings.DocumentProcessors.Add(new MyGuidDocumentProcessor());
+        settings.SchemaSettings.TypeMappers.Add(new EmailTypeMapper());
+        settings.SchemaSettings.TypeMappers.Add(new UserAddressTypeMapper());
+        settings.SchemaSettings.TypeMappers.Add(new PhoneNumberTypeMapper());
+        settings.SchemaSettings.TypeMappers.Add(new MyGuidTypeMapper());
     }
 );
+builder.Services.AddExceptionHandler<EmailExceptionHandler>();
+builder.Services.AddProblemDetails();
+
 DiConfig.ConfigureServices(builder.Services, builder.Configuration);
 
 var app = builder.Build();
@@ -31,7 +42,7 @@ if (app.Environment.IsDevelopment())
         options.SwaggerRoutes.Add(new SwaggerUiRoute("v1", "/swagger/v1/swagger.json"));
     });
 }
-
+app.UseExceptionHandler();
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
