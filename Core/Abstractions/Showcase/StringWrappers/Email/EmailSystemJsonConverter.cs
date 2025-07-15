@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace PrimitiveTypeObsession.Core.Abstractions.StringWrappers.Email;
+namespace PrimitiveTypeObsession.Core.Abstractions.Showcase.StringWrappers.Email;
 
 public class EmailSystemJsonConverter : System.Text.Json.Serialization.JsonConverter<Email>
 {

@@ -1,13 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace PrimitiveTypeObsession.Core.Abstractions.StringWrappers.Email;
+﻿namespace PrimitiveTypeObsession.Core.Abstractions.Showcase.StringWrappers.Email;
 
 [System.Text.Json.Serialization.JsonConverter(typeof(EmailSystemJsonConverter))]
 public readonly record struct Email : IStringWrapper<Email>
 {
     public Email(string Value)
     {
-        if(Value.Contains('@') == false)
+        if(IsValid(Value))
             throw new EmailInvalidException(Value);
         
         this.Value = Value;
@@ -37,6 +35,9 @@ public readonly record struct Email : IStringWrapper<Email>
     {
         return Value;
     }
+
+    public bool IsValid() => IsValid(Value);
+    private static bool IsValid(string value) => value.Contains('@');
 
     public override int GetHashCode()
     {

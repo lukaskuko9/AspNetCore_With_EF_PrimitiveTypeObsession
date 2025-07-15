@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace PrimitiveTypeObsession.Core.Abstractions.StringWrappers.UserAddress;
+namespace PrimitiveTypeObsession.Core.Abstractions.Showcase.StringWrappers.UserAddress;
 
 public class UserAddressSystemJsonConverter : System.Text.Json.Serialization.JsonConverter<UserAddress>
 {

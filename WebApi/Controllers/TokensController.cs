@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using PrimitiveTypeObsession.Core.Abstractions.StringWrappers.Email;
 using PrimitiveTypeObsession.WebApi.Requests;
 using PrimitiveTypeObsession.WebApi.Responses;
 
@@ -15,10 +14,8 @@ public class TokensController : ControllerBase
     {
         return Ok(new PostUserTokenResponse
         {
-            Email = request.Email,
-            PhoneNumber = request.PhoneNumber,
-            UserAddress = request.UserAddress,
-            Guid = request.Guid,
+            AccessToken = request.AccessToken,
+            UserToken = request.UserToken,
         });
     }
 }

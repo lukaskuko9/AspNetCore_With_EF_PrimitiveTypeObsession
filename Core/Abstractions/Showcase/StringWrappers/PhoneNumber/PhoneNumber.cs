@@ -1,11 +1,11 @@
-﻿namespace PrimitiveTypeObsession.Core.Abstractions.StringWrappers.UserAddress;
+﻿namespace PrimitiveTypeObsession.Core.Abstractions.Showcase.StringWrappers.PhoneNumber;
 
-[System.Text.Json.Serialization.JsonConverter(typeof(UserAddressSystemJsonConverter))]
-public readonly record struct UserAddress(string Value) : IStringWrapper<UserAddress>
+[System.Text.Json.Serialization.JsonConverter(typeof(PhoneNumberSystemJsonConverter))]
+public readonly record struct PhoneNumber(string Value) : IStringWrapper<PhoneNumber>
 {
     #region IComparable implementation
 
-    public int CompareTo(UserAddress other)
+    public int CompareTo(PhoneNumber other)
     {
         return string.Compare(Value, other.Value, StringComparison.Ordinal);
     }
@@ -14,7 +14,7 @@ public readonly record struct UserAddress(string Value) : IStringWrapper<UserAdd
 
     #region IEquatable implementation
     
-    public bool Equals(UserAddress other)
+    public bool Equals(PhoneNumber other)
     {
         return Value == other.Value;
     }
@@ -25,7 +25,12 @@ public readonly record struct UserAddress(string Value) : IStringWrapper<UserAdd
 
     public override string ToString()
     {
-        return Value.ToString();
+        return Value;
+    }
+
+    public bool IsValid()
+    {
+        return true;
     }
 
     public override int GetHashCode()

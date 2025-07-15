@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace PrimitiveTypeObsession.Core.Abstractions.StringWrappers.PhoneNumber;
+namespace PrimitiveTypeObsession.Core.Abstractions.Showcase.StringWrappers.PhoneNumber;
 
 public class PhoneNumberSystemJsonConverter : System.Text.Json.Serialization.JsonConverter<PhoneNumber>
 {

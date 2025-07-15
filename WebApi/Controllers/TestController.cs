@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using PrimitiveTypeObsession.Core.Abstractions.StringWrappers.Email;
+using PrimitiveTypeObsession.Core.Abstractions.Showcase.StringWrappers.Email;
 
 namespace PrimitiveTypeObsession.WebApi.Controllers;
 

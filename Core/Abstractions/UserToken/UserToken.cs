@@ -1,11 +1,11 @@
-﻿namespace PrimitiveTypeObsession.Core.Abstractions.GuidWrappers;
+﻿namespace PrimitiveTypeObsession.Core.Abstractions.UserToken;
 
-[System.Text.Json.Serialization.JsonConverter(typeof(MyGuidJsonConverter))]
-public readonly record struct MyGuid(Guid Value) : IGuidWrapper<MyGuid>
+[System.Text.Json.Serialization.JsonConverter(typeof(UserTokenJsonConverter))]
+public readonly record struct UserToken(Guid Value) : IGuidWrapper<UserToken>
 {
     #region IComparable implementation
 
-    public int CompareTo(MyGuid other)
+    public int CompareTo(UserToken other)
     {
         return Value.CompareTo(other.Value);
     }
@@ -14,7 +14,7 @@ public readonly record struct MyGuid(Guid Value) : IGuidWrapper<MyGuid>
 
     #region IEquatable implementation
     
-    public bool Equals(MyGuid other)
+    public bool Equals(UserToken other)
     {
         return Value == other.Value;
     }
